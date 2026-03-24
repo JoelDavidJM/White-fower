@@ -1,0 +1,742 @@
+window.__PANICULATA_HTML__ = `
+<div class="bouquet-wrapper">
+  <div class="bouquet-container">
+    <svg width="600" height="700" viewBox="-50 0 600 700" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="flowerShadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+          <feOffset dx="0.5" dy="0.5" result="offsetblur"/>
+          <feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
+          <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="flowerGlow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur1"/>
+          <feColorMatrix in="blur1" type="matrix" values="1 1 1 0 0.15  1 1 1 0 0.15  1 1 1 0 0.15  0 0 0 0.7 0" result="glow1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur2"/>
+          <feColorMatrix in="blur2" type="matrix" values="1 1 1 0 0.08  1 1 1 0 0.08  1 1 1 0 0.08  0 0 0 0.4 0" result="glow2"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur3"/>
+          <feColorMatrix in="blur3" type="matrix" values="1 1 1 0 0.03  1 1 1 0 0.03  1 1 1 0 0.03  0 0 0 0.2 0" result="glow3"/>
+          <feMerge>
+            <feMergeNode in="glow3"/>
+            <feMergeNode in="glow2"/>
+            <feMergeNode in="glow1"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <g id="tinyFlower">
+          <ellipse cx="0" cy="-1.2" rx="0.8" ry="1.5" fill="#fff" opacity="0.95"/>
+          <ellipse cx="1" cy="-0.6" rx="0.8" ry="1.5" fill="#fff" opacity="0.95" transform="rotate(72 0 0)"/>
+          <ellipse cx="0.6" cy="1" rx="0.8" ry="1.5" fill="#fff" opacity="0.95" transform="rotate(144 0 0)"/>
+          <ellipse cx="-0.6" cy="1" rx="0.8" ry="1.5" fill="#fff" opacity="0.95" transform="rotate(216 0 0)"/>
+          <ellipse cx="-1" cy="-0.6" rx="0.8" ry="1.5" fill="#fff" opacity="0.95" transform="rotate(288 0 0)"/>
+          <circle cx="0" cy="0" r="0.7" fill="#fffacd"/>
+        </g>
+        <g id="smallFlower">
+          <ellipse cx="0" cy="-2" rx="1.5" ry="2.5" fill="#fff" opacity="0.95"/>
+          <ellipse cx="1.7" cy="-1" rx="1.5" ry="2.5" fill="#fff" opacity="0.95" transform="rotate(72 0 0)"/>
+          <ellipse cx="1.1" cy="1.6" rx="1.5" ry="2.5" fill="#fff" opacity="0.95" transform="rotate(144 0 0)"/>
+          <ellipse cx="-1.1" cy="1.6" rx="1.5" ry="2.5" fill="#fff" opacity="0.95" transform="rotate(216 0 0)"/>
+          <ellipse cx="-1.7" cy="-1" rx="1.5" ry="2.5" fill="#fff" opacity="0.95" transform="rotate(288 0 0)"/>
+          <circle cx="0" cy="0" r="1.2" fill="#fffacd"/>
+        </g>
+        <g id="mediumFlower">
+          <ellipse cx="0" cy="-2.5" rx="2" ry="3" fill="#fff" opacity="0.95"/>
+          <ellipse cx="2.2" cy="-1.2" rx="2" ry="3" fill="#fff" opacity="0.95" transform="rotate(72 0 0)"/>
+          <ellipse cx="1.4" cy="2" rx="2" ry="3" fill="#fff" opacity="0.95" transform="rotate(144 0 0)"/>
+          <ellipse cx="-1.4" cy="2" rx="2" ry="3" fill="#fff" opacity="0.95" transform="rotate(216 0 0)"/>
+          <ellipse cx="-2.2" cy="-1.2" rx="2" ry="3" fill="#fff" opacity="0.95" transform="rotate(288 0 0)"/>
+          <circle cx="0" cy="0" r="1.5" fill="#fffacd"/>
+        </g>
+        <g id="largeFlower">
+          <ellipse cx="0" cy="-3" rx="2.5" ry="3.5" fill="#fff" opacity="0.95"/>
+          <ellipse cx="2.6" cy="-1.5" rx="2.5" ry="3.5" fill="#fff" opacity="0.95" transform="rotate(72 0 0)"/>
+          <ellipse cx="1.6" cy="2.4" rx="2.5" ry="3.5" fill="#fff" opacity="0.95" transform="rotate(144 0 0)"/>
+          <ellipse cx="-1.6" cy="2.4" rx="2.5" ry="3.5" fill="#fff" opacity="0.95" transform="rotate(216 0 0)"/>
+          <ellipse cx="-2.6" cy="-1.5" rx="2.5" ry="3.5" fill="#fff" opacity="0.95" transform="rotate(288 0 0)"/>
+          <circle cx="0" cy="0" r="2" fill="#fffacd"/>
+        </g>
+      </defs>
+      <g id="allContent">
+        <g class="stems">
+          <path class="stem" d="M 250 550 Q 240 400, 180 200" stroke-width="3"/>
+          <path class="stem" d="M 250 550 Q 250 400, 250 150" stroke-width="3"/>
+          <path class="stem" d="M 250 550 Q 260 400, 320 180" stroke-width="3"/>
+          <path class="stem" d="M 250 550 Q 230 420, 150 250" stroke-width="2.5"/>
+          <path class="stem" d="M 250 550 Q 270 420, 350 230" stroke-width="2.5"/>
+          <path class="stem" d="M 250 550 Q 245 380, 200 280" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 255 380, 300 260" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 235 450, 190 350" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 265 450, 310 340" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 210 430, 100 280" stroke-width="2.5"/>
+          <path class="stem" d="M 250 550 Q 290 430, 400 260" stroke-width="2.5"/>
+          <path class="stem" d="M 250 550 Q 220 460, 130 360" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 280 460, 370 350" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 235 410, 160 310" stroke-width="1.8"/>
+          <path class="stem" d="M 250 550 Q 265 410, 340 300" stroke-width="1.8"/>
+          <path class="stem" d="M 250 550 Q 200 380, 80 230" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 300 380, 420 210" stroke-width="2"/>
+          <path class="stem" d="M 250 550 Q 250 350, 250 120" stroke-width="1.5"/>
+          <path class="stem" d="M 250 550 Q 225 390, 120 200" stroke-width="1.8"/>
+          <path class="stem" d="M 250 550 Q 275 390, 380 190" stroke-width="1.8"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 180 200 L 140 160" stroke-width="1.5"/>
+          <use href="#largeFlower" x="140" y="160"/>
+          <path class="stem" d="M 140 160 L 125 145" stroke-width="1"/>
+          <use href="#mediumFlower" x="125" y="145"/>
+          <path class="stem" d="M 140 160 L 155 150" stroke-width="1"/>
+          <use href="#mediumFlower" x="155" y="150"/>
+          <path class="stem" d="M 140 160 L 135 175" stroke-width="1"/>
+          <use href="#smallFlower" x="135" y="175"/>
+          <path class="stem" d="M 125 145 L 115 135" stroke-width="0.7"/>
+          <use href="#smallFlower" x="115" y="135"/>
+          <path class="stem" d="M 125 145 L 120 155" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="120" y="155"/>
+          <path class="stem" d="M 155 150 L 165 140" stroke-width="0.7"/>
+          <use href="#smallFlower" x="165" y="140"/>
+          <path class="stem" d="M 155 150 L 160 162" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="160" y="162"/>
+          <path class="stem" d="M 180 200 L 170 185" stroke-width="1"/>
+          <use href="#mediumFlower" x="170" y="185"/>
+          <path class="stem" d="M 170 185 L 165 175" stroke-width="0.7"/>
+          <use href="#smallFlower" x="165" y="175"/>
+          <path class="stem" d="M 170 185 L 175 170" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="175" y="170"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 250 150 L 240 100" stroke-width="1.5"/>
+          <use href="#largeFlower" x="240" y="100"/>
+          <path class="stem" d="M 240 100 L 230 85" stroke-width="1"/>
+          <use href="#mediumFlower" x="230" y="85"/>
+          <path class="stem" d="M 240 100 L 250 80" stroke-width="1"/>
+          <use href="#mediumFlower" x="250" y="80"/>
+          <path class="stem" d="M 240 100 L 245 115" stroke-width="1"/>
+          <use href="#smallFlower" x="245" y="115"/>
+          <path class="stem" d="M 230 85 L 220 75" stroke-width="0.7"/>
+          <use href="#smallFlower" x="220" y="75"/>
+          <path class="stem" d="M 230 85 L 235 70" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="235" y="70"/>
+          <path class="stem" d="M 250 80 L 260 70" stroke-width="0.7"/>
+          <use href="#smallFlower" x="260" y="70"/>
+          <path class="stem" d="M 250 80 L 248 65" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="248" y="65"/>
+          <path class="stem" d="M 250 150 L 255 120" stroke-width="1"/>
+          <use href="#mediumFlower" x="255" y="120"/>
+          <path class="stem" d="M 255 120 L 265 110" stroke-width="0.7"/>
+          <use href="#smallFlower" x="265" y="110"/>
+          <path class="stem" d="M 255 120 L 252 105" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="252" y="105"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 320 180 L 360 150" stroke-width="1.5"/>
+          <use href="#largeFlower" x="360" y="150"/>
+          <path class="stem" d="M 360 150 L 375 140" stroke-width="1"/>
+          <use href="#mediumFlower" x="375" y="140"/>
+          <path class="stem" d="M 360 150 L 345 140" stroke-width="1"/>
+          <use href="#mediumFlower" x="345" y="140"/>
+          <path class="stem" d="M 360 150 L 365 165" stroke-width="1"/>
+          <use href="#smallFlower" x="365" y="165"/>
+          <path class="stem" d="M 375 140 L 385 130" stroke-width="0.7"/>
+          <use href="#smallFlower" x="385" y="130"/>
+          <path class="stem" d="M 375 140 L 380 150" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="380" y="150"/>
+          <path class="stem" d="M 345 140 L 335 130" stroke-width="0.7"/>
+          <use href="#smallFlower" x="335" y="130"/>
+          <path class="stem" d="M 345 140 L 340 152" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="340" y="152"/>
+          <path class="stem" d="M 320 180 L 330 170" stroke-width="1"/>
+          <use href="#mediumFlower" x="330" y="170"/>
+          <path class="stem" d="M 330 170 L 325 160" stroke-width="0.7"/>
+          <use href="#smallFlower" x="325" y="160"/>
+          <path class="stem" d="M 330 170 L 338 162" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="338" y="162"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 150 250 L 110 230" stroke-width="1.5"/>
+          <use href="#largeFlower" x="110" y="230"/>
+          <path class="stem" d="M 110 230 L 95 220" stroke-width="1"/>
+          <use href="#mediumFlower" x="95" y="220"/>
+          <path class="stem" d="M 110 230 L 120 215" stroke-width="1"/>
+          <use href="#mediumFlower" x="120" y="215"/>
+          <path class="stem" d="M 110 230 L 105 245" stroke-width="1"/>
+          <use href="#smallFlower" x="105" y="245"/>
+          <path class="stem" d="M 95 220 L 85 210" stroke-width="0.7"/>
+          <use href="#smallFlower" x="85" y="210"/>
+          <path class="stem" d="M 95 220 L 90 230" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="90" y="230"/>
+          <path class="stem" d="M 120 215 L 130 205" stroke-width="0.7"/>
+          <use href="#smallFlower" x="130" y="205"/>
+          <path class="stem" d="M 120 215 L 115 205" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="115" y="205"/>
+          <path class="stem" d="M 150 250 L 140 240" stroke-width="1"/>
+          <use href="#mediumFlower" x="140" y="240"/>
+          <path class="stem" d="M 140 240 L 135 230" stroke-width="0.7"/>
+          <use href="#smallFlower" x="135" y="230"/>
+          <path class="stem" d="M 140 240 L 145 228" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="145" y="228"/>
+          <path class="stem" d="M 150 250 L 155 235" stroke-width="1"/>
+          <use href="#smallFlower" x="155" y="235"/>
+          <path class="stem" d="M 155 235 L 160 225" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="160" y="225"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 200 280 L 170 250" stroke-width="1.5"/>
+          <use href="#largeFlower" x="170" y="250"/>
+          <path class="stem" d="M 170 250 L 160 240" stroke-width="1"/>
+          <use href="#mediumFlower" x="160" y="240"/>
+          <path class="stem" d="M 170 250 L 180 238" stroke-width="1"/>
+          <use href="#mediumFlower" x="180" y="238"/>
+          <path class="stem" d="M 170 250 L 165 265" stroke-width="1"/>
+          <use href="#smallFlower" x="165" y="265"/>
+          <path class="stem" d="M 160 240 L 150 230" stroke-width="0.7"/>
+          <use href="#smallFlower" x="150" y="230"/>
+          <path class="stem" d="M 160 240 L 155 250" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="155" y="250"/>
+          <path class="stem" d="M 180 238 L 190 228" stroke-width="0.7"/>
+          <use href="#smallFlower" x="190" y="228"/>
+          <path class="stem" d="M 180 238 L 185 248" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="185" y="248"/>
+          <path class="stem" d="M 200 280 L 190 268" stroke-width="1"/>
+          <use href="#mediumFlower" x="190" y="268"/>
+          <path class="stem" d="M 190 268 L 185 258" stroke-width="0.7"/>
+          <use href="#smallFlower" x="185" y="258"/>
+          <path class="stem" d="M 190 268 L 195 256" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="195" y="256"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 250 200 L 230 180" stroke-width="1.5"/>
+          <use href="#largeFlower" x="230" y="180"/>
+          <path class="stem" d="M 230 180 L 220 170" stroke-width="1"/>
+          <use href="#mediumFlower" x="220" y="170"/>
+          <path class="stem" d="M 230 180 L 240 170" stroke-width="1"/>
+          <use href="#mediumFlower" x="240" y="170"/>
+          <path class="stem" d="M 230 180 L 225 195" stroke-width="1"/>
+          <use href="#smallFlower" x="225" y="195"/>
+          <path class="stem" d="M 220 170 L 210 160" stroke-width="0.7"/>
+          <use href="#smallFlower" x="210" y="160"/>
+          <path class="stem" d="M 220 170 L 215 180" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="215" y="180"/>
+          <path class="stem" d="M 240 170 L 250 160" stroke-width="0.7"/>
+          <use href="#smallFlower" x="250" y="160"/>
+          <path class="stem" d="M 240 170 L 245 180" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="245" y="180"/>
+          <path class="stem" d="M 250 220 L 270 200" stroke-width="1.5"/>
+          <use href="#largeFlower" x="270" y="200"/>
+          <path class="stem" d="M 270 200 L 280 190" stroke-width="1"/>
+          <use href="#mediumFlower" x="280" y="190"/>
+          <path class="stem" d="M 270 200 L 260 190" stroke-width="1"/>
+          <use href="#mediumFlower" x="260" y="190"/>
+          <path class="stem" d="M 270 200 L 275 215" stroke-width="1"/>
+          <use href="#smallFlower" x="275" y="215"/>
+          <path class="stem" d="M 280 190 L 290 180" stroke-width="0.7"/>
+          <use href="#smallFlower" x="290" y="180"/>
+          <path class="stem" d="M 280 190 L 285 200" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="285" y="200"/>
+          <path class="stem" d="M 260 190 L 252 180" stroke-width="0.7"/>
+          <use href="#smallFlower" x="252" y="180"/>
+          <path class="stem" d="M 260 190 L 255 200" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="255" y="200"/>
+          <path class="stem" d="M 250 240 L 245 225" stroke-width="1"/>
+          <use href="#mediumFlower" x="245" y="225"/>
+          <path class="stem" d="M 245 225 L 240 215" stroke-width="0.7"/>
+          <use href="#smallFlower" x="240" y="215"/>
+          <path class="stem" d="M 245 225 L 250 215" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="250" y="215"/>
+          <path class="stem" d="M 250 240 L 255 228" stroke-width="1"/>
+          <use href="#mediumFlower" x="255" y="228"/>
+          <path class="stem" d="M 255 228 L 260 218" stroke-width="0.7"/>
+          <use href="#smallFlower" x="260" y="218"/>
+          <path class="stem" d="M 255 228 L 252 238" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="252" y="238"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 300 260 L 330 240" stroke-width="1.5"/>
+          <use href="#largeFlower" x="330" y="240"/>
+          <path class="stem" d="M 330 240 L 340 230" stroke-width="1"/>
+          <use href="#mediumFlower" x="340" y="230"/>
+          <path class="stem" d="M 330 240 L 320 230" stroke-width="1"/>
+          <use href="#mediumFlower" x="320" y="230"/>
+          <path class="stem" d="M 330 240 L 335 255" stroke-width="1"/>
+          <use href="#smallFlower" x="335" y="255"/>
+          <path class="stem" d="M 340 230 L 350 220" stroke-width="0.7"/>
+          <use href="#smallFlower" x="350" y="220"/>
+          <path class="stem" d="M 340 230 L 345 240" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="345" y="240"/>
+          <path class="stem" d="M 320 230 L 310 220" stroke-width="0.7"/>
+          <use href="#smallFlower" x="310" y="220"/>
+          <path class="stem" d="M 320 230 L 315 240" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="315" y="240"/>
+          <path class="stem" d="M 300 260 L 310 248" stroke-width="1"/>
+          <use href="#mediumFlower" x="310" y="248"/>
+          <path class="stem" d="M 310 248 L 305 238" stroke-width="0.7"/>
+          <use href="#smallFlower" x="305" y="238"/>
+          <path class="stem" d="M 310 248 L 315 256" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="315" y="256"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 350 230 L 385 210" stroke-width="1.5"/>
+          <use href="#largeFlower" x="385" y="210"/>
+          <path class="stem" d="M 385 210 L 395 200" stroke-width="1"/>
+          <use href="#mediumFlower" x="395" y="200"/>
+          <path class="stem" d="M 385 210 L 375 200" stroke-width="1"/>
+          <use href="#mediumFlower" x="375" y="200"/>
+          <path class="stem" d="M 385 210 L 390 225" stroke-width="1"/>
+          <use href="#smallFlower" x="390" y="225"/>
+          <path class="stem" d="M 395 200 L 405 190" stroke-width="0.7"/>
+          <use href="#smallFlower" x="405" y="190"/>
+          <path class="stem" d="M 395 200 L 400 210" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="400" y="210"/>
+          <path class="stem" d="M 375 200 L 365 190" stroke-width="0.7"/>
+          <use href="#smallFlower" x="365" y="190"/>
+          <path class="stem" d="M 375 200 L 370 210" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="370" y="210"/>
+          <path class="stem" d="M 350 230 L 360 218" stroke-width="1"/>
+          <use href="#mediumFlower" x="360" y="218"/>
+          <path class="stem" d="M 360 218 L 355 208" stroke-width="0.7"/>
+          <use href="#smallFlower" x="355" y="208"/>
+          <path class="stem" d="M 360 218 L 368 210" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="368" y="210"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 190 350 L 160 320" stroke-width="1.5"/>
+          <use href="#largeFlower" x="160" y="320"/>
+          <path class="stem" d="M 160 320 L 150 310" stroke-width="1"/>
+          <use href="#mediumFlower" x="150" y="310"/>
+          <path class="stem" d="M 160 320 L 170 310" stroke-width="1"/>
+          <use href="#mediumFlower" x="170" y="310"/>
+          <path class="stem" d="M 160 320 L 155 335" stroke-width="1"/>
+          <use href="#smallFlower" x="155" y="335"/>
+          <path class="stem" d="M 150 310 L 140 300" stroke-width="0.7"/>
+          <use href="#smallFlower" x="140" y="300"/>
+          <path class="stem" d="M 150 310 L 145 320" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="145" y="320"/>
+          <path class="stem" d="M 170 310 L 180 300" stroke-width="0.7"/>
+          <use href="#smallFlower" x="180" y="300"/>
+          <path class="stem" d="M 170 310 L 175 320" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="175" y="320"/>
+          <path class="stem" d="M 190 350 L 180 335" stroke-width="1"/>
+          <use href="#mediumFlower" x="180" y="335"/>
+          <path class="stem" d="M 180 335 L 175 325" stroke-width="0.7"/>
+          <use href="#smallFlower" x="175" y="325"/>
+          <path class="stem" d="M 180 335 L 185 345" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="185" y="345"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 250 300 L 235 280" stroke-width="1.5"/>
+          <use href="#largeFlower" x="235" y="280"/>
+          <path class="stem" d="M 235 280 L 225 270" stroke-width="1"/>
+          <use href="#mediumFlower" x="225" y="270"/>
+          <path class="stem" d="M 235 280 L 245 270" stroke-width="1"/>
+          <use href="#mediumFlower" x="245" y="270"/>
+          <path class="stem" d="M 235 280 L 230 295" stroke-width="1"/>
+          <use href="#smallFlower" x="230" y="295"/>
+          <path class="stem" d="M 225 270 L 215 260" stroke-width="0.7"/>
+          <use href="#smallFlower" x="215" y="260"/>
+          <path class="stem" d="M 225 270 L 220 280" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="220" y="280"/>
+          <path class="stem" d="M 245 270 L 255 260" stroke-width="0.7"/>
+          <use href="#smallFlower" x="255" y="260"/>
+          <path class="stem" d="M 245 270 L 250 280" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="250" y="280"/>
+          <path class="stem" d="M 250 300 L 265 285" stroke-width="1.5"/>
+          <use href="#largeFlower" x="265" y="285"/>
+          <path class="stem" d="M 265 285 L 275 275" stroke-width="1"/>
+          <use href="#mediumFlower" x="275" y="275"/>
+          <path class="stem" d="M 265 285 L 255 275" stroke-width="1"/>
+          <use href="#mediumFlower" x="255" y="275"/>
+          <path class="stem" d="M 265 285 L 270 300" stroke-width="1"/>
+          <use href="#smallFlower" x="270" y="300"/>
+          <path class="stem" d="M 275 275 L 285 265" stroke-width="0.7"/>
+          <use href="#smallFlower" x="285" y="265"/>
+          <path class="stem" d="M 275 275 L 280 285" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="280" y="285"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 310 340 L 340 320" stroke-width="1.5"/>
+          <use href="#largeFlower" x="340" y="320"/>
+          <path class="stem" d="M 340 320 L 350 310" stroke-width="1"/>
+          <use href="#mediumFlower" x="350" y="310"/>
+          <path class="stem" d="M 340 320 L 330 310" stroke-width="1"/>
+          <use href="#mediumFlower" x="330" y="310"/>
+          <path class="stem" d="M 340 320 L 345 335" stroke-width="1"/>
+          <use href="#smallFlower" x="345" y="335"/>
+          <path class="stem" d="M 350 310 L 360 300" stroke-width="0.7"/>
+          <use href="#smallFlower" x="360" y="300"/>
+          <path class="stem" d="M 350 310 L 355 320" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="355" y="320"/>
+          <path class="stem" d="M 330 310 L 320 300" stroke-width="0.7"/>
+          <use href="#smallFlower" x="320" y="300"/>
+          <path class="stem" d="M 330 310 L 325 320" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="325" y="320"/>
+          <path class="stem" d="M 310 340 L 320 328" stroke-width="1"/>
+          <use href="#mediumFlower" x="320" y="328"/>
+          <path class="stem" d="M 320 328 L 315 318" stroke-width="0.7"/>
+          <use href="#smallFlower" x="315" y="318"/>
+          <path class="stem" d="M 320 328 L 328 338" stroke-width="0.7"/>
+          <use href="#tinyFlower" x="328" y="338"/>
+        </g>
+        <g class="fill-flowers">
+          <path class="stem" d="M 180 220 L 175 210" stroke-width="0.7"/><use href="#smallFlower" x="175" y="210"/>
+          <path class="stem" d="M 160 270 L 155 260" stroke-width="0.7"/><use href="#tinyFlower" x="155" y="260"/>
+          <path class="stem" d="M 195 290 L 190 280" stroke-width="0.7"/><use href="#smallFlower" x="190" y="280"/>
+          <path class="stem" d="M 145 195 L 140 185" stroke-width="0.7"/><use href="#tinyFlower" x="140" y="185"/>
+          <path class="stem" d="M 125 225 L 120 215" stroke-width="0.7"/><use href="#smallFlower" x="120" y="215"/>
+          <path class="stem" d="M 320 220 L 325 210" stroke-width="0.7"/><use href="#smallFlower" x="325" y="210"/>
+          <path class="stem" d="M 340 270 L 345 260" stroke-width="0.7"/><use href="#tinyFlower" x="345" y="260"/>
+          <path class="stem" d="M 305 290 L 310 280" stroke-width="0.7"/><use href="#smallFlower" x="310" y="280"/>
+          <path class="stem" d="M 355 195 L 360 185" stroke-width="0.7"/><use href="#tinyFlower" x="360" y="185"/>
+          <path class="stem" d="M 375 225 L 380 215" stroke-width="0.7"/><use href="#smallFlower" x="380" y="215"/>
+          <path class="stem" d="M 240 255 L 235 245" stroke-width="0.7"/><use href="#tinyFlower" x="235" y="245"/>
+          <path class="stem" d="M 260 255 L 265 245" stroke-width="0.7"/><use href="#tinyFlower" x="265" y="245"/>
+          <path class="stem" d="M 248 135 L 243 125" stroke-width="0.7"/><use href="#tinyFlower" x="243" y="125"/>
+          <path class="stem" d="M 252 138 L 257 128" stroke-width="0.7"/><use href="#tinyFlower" x="257" y="128"/>
+          <path class="stem" d="M 245 305 L 240 295" stroke-width="0.7"/><use href="#smallFlower" x="240" y="295"/>
+          <path class="stem" d="M 255 305 L 260 295" stroke-width="0.7"/><use href="#smallFlower" x="260" y="295"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 100 280 L 65 255" stroke-width="1.5"/><use href="#largeFlower" x="65" y="255"/>
+          <path class="stem" d="M 65 255 L 50 245" stroke-width="1"/><use href="#mediumFlower" x="50" y="245"/>
+          <path class="stem" d="M 65 255 L 75 242" stroke-width="1"/><use href="#mediumFlower" x="75" y="242"/>
+          <path class="stem" d="M 65 255 L 60 270" stroke-width="1"/><use href="#smallFlower" x="60" y="270"/>
+          <path class="stem" d="M 50 245 L 40 235" stroke-width="0.7"/><use href="#smallFlower" x="40" y="235"/>
+          <path class="stem" d="M 50 245 L 45 258" stroke-width="0.7"/><use href="#tinyFlower" x="45" y="258"/>
+          <path class="stem" d="M 75 242 L 85 232" stroke-width="0.7"/><use href="#smallFlower" x="85" y="232"/>
+          <path class="stem" d="M 75 242 L 70 255" stroke-width="0.7"/><use href="#tinyFlower" x="70" y="255"/>
+          <path class="stem" d="M 40 235 L 30 225" stroke-width="0.7"/><use href="#tinyFlower" x="30" y="225"/>
+          <path class="stem" d="M 40 235 L 35 248" stroke-width="0.7"/><use href="#tinyFlower" x="35" y="248"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 130 360 L 95 340" stroke-width="1.5"/><use href="#largeFlower" x="95" y="340"/>
+          <path class="stem" d="M 95 340 L 80 330" stroke-width="1"/><use href="#mediumFlower" x="80" y="330"/>
+          <path class="stem" d="M 95 340 L 105 328" stroke-width="1"/><use href="#mediumFlower" x="105" y="328"/>
+          <path class="stem" d="M 95 340 L 90 355" stroke-width="1"/><use href="#smallFlower" x="90" y="355"/>
+          <path class="stem" d="M 80 330 L 68 320" stroke-width="0.7"/><use href="#smallFlower" x="68" y="320"/>
+          <path class="stem" d="M 80 330 L 75 343" stroke-width="0.7"/><use href="#tinyFlower" x="75" y="343"/>
+          <path class="stem" d="M 105 328 L 115 318" stroke-width="0.7"/><use href="#smallFlower" x="115" y="318"/>
+          <path class="stem" d="M 105 328 L 100 340" stroke-width="0.7"/><use href="#tinyFlower" x="100" y="340"/>
+          <path class="stem" d="M 68 320 L 55 310" stroke-width="0.7"/><use href="#tinyFlower" x="55" y="310"/>
+          <path class="stem" d="M 68 320 L 62 333" stroke-width="0.7"/><use href="#tinyFlower" x="62" y="333"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 400 260 L 435 238" stroke-width="1.5"/><use href="#largeFlower" x="435" y="238"/>
+          <path class="stem" d="M 435 238 L 448 228" stroke-width="1"/><use href="#mediumFlower" x="448" y="228"/>
+          <path class="stem" d="M 435 238 L 425 226" stroke-width="1"/><use href="#mediumFlower" x="425" y="226"/>
+          <path class="stem" d="M 435 238 L 440 252" stroke-width="1"/><use href="#smallFlower" x="440" y="252"/>
+          <path class="stem" d="M 448 228 L 460 218" stroke-width="0.7"/><use href="#smallFlower" x="460" y="218"/>
+          <path class="stem" d="M 448 228 L 453 240" stroke-width="0.7"/><use href="#tinyFlower" x="453" y="240"/>
+          <path class="stem" d="M 425 226 L 415 216" stroke-width="0.7"/><use href="#smallFlower" x="415" y="216"/>
+          <path class="stem" d="M 425 226 L 420 238" stroke-width="0.7"/><use href="#tinyFlower" x="420" y="238"/>
+          <path class="stem" d="M 460 218 L 472 208" stroke-width="0.7"/><use href="#tinyFlower" x="472" y="208"/>
+          <path class="stem" d="M 460 218 L 465 230" stroke-width="0.7"/><use href="#tinyFlower" x="465" y="230"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 370 350 L 405 330" stroke-width="1.5"/><use href="#largeFlower" x="405" y="330"/>
+          <path class="stem" d="M 405 330 L 418 320" stroke-width="1"/><use href="#mediumFlower" x="418" y="320"/>
+          <path class="stem" d="M 405 330 L 395 318" stroke-width="1"/><use href="#mediumFlower" x="395" y="318"/>
+          <path class="stem" d="M 405 330 L 410 345" stroke-width="1"/><use href="#smallFlower" x="410" y="345"/>
+          <path class="stem" d="M 418 320 L 430 310" stroke-width="0.7"/><use href="#smallFlower" x="430" y="310"/>
+          <path class="stem" d="M 418 320 L 423 332" stroke-width="0.7"/><use href="#tinyFlower" x="423" y="332"/>
+          <path class="stem" d="M 395 318 L 385 308" stroke-width="0.7"/><use href="#smallFlower" x="385" y="308"/>
+          <path class="stem" d="M 395 318 L 390 330" stroke-width="0.7"/><use href="#tinyFlower" x="390" y="330"/>
+          <path class="stem" d="M 430 310 L 443 300" stroke-width="0.7"/><use href="#tinyFlower" x="443" y="300"/>
+          <path class="stem" d="M 430 310 L 435 322" stroke-width="0.7"/><use href="#tinyFlower" x="435" y="322"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 120 200 L 85 170" stroke-width="1.5"/><use href="#largeFlower" x="85" y="170"/>
+          <path class="stem" d="M 85 170 L 70 158" stroke-width="1"/><use href="#mediumFlower" x="70" y="158"/>
+          <path class="stem" d="M 85 170 L 98 158" stroke-width="1"/><use href="#mediumFlower" x="98" y="158"/>
+          <path class="stem" d="M 85 170 L 80 185" stroke-width="1"/><use href="#smallFlower" x="80" y="185"/>
+          <path class="stem" d="M 70 158 L 58 148" stroke-width="0.7"/><use href="#smallFlower" x="58" y="148"/>
+          <path class="stem" d="M 70 158 L 65 170" stroke-width="0.7"/><use href="#tinyFlower" x="65" y="170"/>
+          <path class="stem" d="M 98 158 L 108 147" stroke-width="0.7"/><use href="#smallFlower" x="108" y="147"/>
+          <path class="stem" d="M 98 158 L 93 170" stroke-width="0.7"/><use href="#tinyFlower" x="93" y="170"/>
+          <path class="stem" d="M 58 148 L 46 138" stroke-width="0.7"/><use href="#tinyFlower" x="46" y="138"/>
+          <path class="stem" d="M 58 148 L 53 160" stroke-width="0.7"/><use href="#tinyFlower" x="53" y="160"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 380 190 L 415 162" stroke-width="1.5"/><use href="#largeFlower" x="415" y="162"/>
+          <path class="stem" d="M 415 162 L 428 150" stroke-width="1"/><use href="#mediumFlower" x="428" y="150"/>
+          <path class="stem" d="M 415 162 L 403 150" stroke-width="1"/><use href="#mediumFlower" x="403" y="150"/>
+          <path class="stem" d="M 415 162 L 420 176" stroke-width="1"/><use href="#smallFlower" x="420" y="176"/>
+          <path class="stem" d="M 428 150 L 440 140" stroke-width="0.7"/><use href="#smallFlower" x="440" y="140"/>
+          <path class="stem" d="M 428 150 L 433 162" stroke-width="0.7"/><use href="#tinyFlower" x="433" y="162"/>
+          <path class="stem" d="M 403 150 L 393 140" stroke-width="0.7"/><use href="#smallFlower" x="393" y="140"/>
+          <path class="stem" d="M 403 150 L 398 162" stroke-width="0.7"/><use href="#tinyFlower" x="398" y="162"/>
+          <path class="stem" d="M 440 140 L 452 130" stroke-width="0.7"/><use href="#tinyFlower" x="452" y="130"/>
+          <path class="stem" d="M 440 140 L 445 152" stroke-width="0.7"/><use href="#tinyFlower" x="445" y="152"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 250 120 L 245 90" stroke-width="1.2"/><use href="#largeFlower" x="245" y="90"/>
+          <path class="stem" d="M 245 90 L 235 78" stroke-width="0.9"/><use href="#mediumFlower" x="235" y="78"/>
+          <path class="stem" d="M 245 90 L 257 78" stroke-width="0.9"/><use href="#mediumFlower" x="257" y="78"/>
+          <path class="stem" d="M 245 90 L 240 104" stroke-width="0.9"/><use href="#smallFlower" x="240" y="104"/>
+          <path class="stem" d="M 235 78 L 225 67" stroke-width="0.7"/><use href="#smallFlower" x="225" y="67"/>
+          <path class="stem" d="M 235 78 L 230 90" stroke-width="0.7"/><use href="#tinyFlower" x="230" y="90"/>
+          <path class="stem" d="M 257 78 L 267 67" stroke-width="0.7"/><use href="#smallFlower" x="267" y="67"/>
+          <path class="stem" d="M 257 78 L 262 90" stroke-width="0.7"/><use href="#tinyFlower" x="262" y="90"/>
+          <path class="stem" d="M 225 67 L 218 55" stroke-width="0.7"/><use href="#tinyFlower" x="218" y="55"/>
+          <path class="stem" d="M 267 67 L 274 55" stroke-width="0.7"/><use href="#tinyFlower" x="274" y="55"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 160 310 L 130 300" stroke-width="1.2"/><use href="#mediumFlower" x="130" y="300"/>
+          <path class="stem" d="M 130 300 L 120 290" stroke-width="0.9"/><use href="#smallFlower" x="120" y="290"/>
+          <path class="stem" d="M 130 300 L 140 290" stroke-width="0.9"/><use href="#smallFlower" x="140" y="290"/>
+          <path class="stem" d="M 120 290 L 112 280" stroke-width="0.7"/><use href="#tinyFlower" x="112" y="280"/>
+          <path class="stem" d="M 120 290 L 115 302" stroke-width="0.7"/><use href="#tinyFlower" x="115" y="302"/>
+          <path class="stem" d="M 140 290 L 148 280" stroke-width="0.7"/><use href="#tinyFlower" x="148" y="280"/>
+          <path class="stem" d="M 140 290 L 145 302" stroke-width="0.7"/><use href="#tinyFlower" x="145" y="302"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 340 300 L 370 290" stroke-width="1.2"/><use href="#mediumFlower" x="370" y="290"/>
+          <path class="stem" d="M 370 290 L 380 280" stroke-width="0.9"/><use href="#smallFlower" x="380" y="280"/>
+          <path class="stem" d="M 370 290 L 360 280" stroke-width="0.9"/><use href="#smallFlower" x="360" y="280"/>
+          <path class="stem" d="M 380 280 L 390 270" stroke-width="0.7"/><use href="#tinyFlower" x="390" y="270"/>
+          <path class="stem" d="M 380 280 L 385 292" stroke-width="0.7"/><use href="#tinyFlower" x="385" y="292"/>
+          <path class="stem" d="M 360 280 L 352 270" stroke-width="0.7"/><use href="#tinyFlower" x="352" y="270"/>
+          <path class="stem" d="M 360 280 L 355 292" stroke-width="0.7"/><use href="#tinyFlower" x="355" y="292"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 100 280 L 75 270" stroke-width="1"/><use href="#mediumFlower" x="75" y="270"/>
+          <path class="stem" d="M 75 270 L 63 260" stroke-width="0.7"/><use href="#smallFlower" x="63" y="260"/>
+          <path class="stem" d="M 75 270 L 80 258" stroke-width="0.7"/><use href="#smallFlower" x="80" y="258"/>
+          <path class="stem" d="M 75 270 L 70 282" stroke-width="0.7"/><use href="#tinyFlower" x="70" y="282"/>
+          <path class="stem" d="M 63 260 L 52 250" stroke-width="0.7"/><use href="#tinyFlower" x="52" y="250"/>
+          <path class="stem" d="M 63 260 L 58 272" stroke-width="0.7"/><use href="#tinyFlower" x="58" y="272"/>
+        </g>
+        <g class="flower-cluster">
+          <path class="stem" d="M 400 260 L 425 250" stroke-width="1"/><use href="#mediumFlower" x="425" y="250"/>
+          <path class="stem" d="M 425 250 L 437 240" stroke-width="0.7"/><use href="#smallFlower" x="437" y="240"/>
+          <path class="stem" d="M 425 250 L 420 238" stroke-width="0.7"/><use href="#smallFlower" x="420" y="238"/>
+          <path class="stem" d="M 425 250 L 430 262" stroke-width="0.7"/><use href="#tinyFlower" x="430" y="262"/>
+          <path class="stem" d="M 437 240 L 448 230" stroke-width="0.7"/><use href="#tinyFlower" x="448" y="230"/>
+          <path class="stem" d="M 437 240 L 442 252" stroke-width="0.7"/><use href="#tinyFlower" x="442" y="252"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 215 450, 90 190" stroke-width="2"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 90 190 L 60 165" stroke-width="1.5"/><use href="#largeFlower" x="60" y="165"/>
+          <path class="stem" d="M 60 165 L 45 152" stroke-width="1"/><use href="#mediumFlower" x="45" y="152"/>
+          <path class="stem" d="M 60 165 L 72 150" stroke-width="1"/><use href="#mediumFlower" x="72" y="150"/>
+          <path class="stem" d="M 60 165 L 55 180" stroke-width="1"/><use href="#smallFlower" x="55" y="180"/>
+          <path class="stem" d="M 45 152 L 33 140" stroke-width="0.7"/><use href="#smallFlower" x="33" y="140"/>
+          <path class="stem" d="M 45 152 L 40 165" stroke-width="0.7"/><use href="#tinyFlower" x="40" y="165"/>
+          <path class="stem" d="M 72 150 L 82 140" stroke-width="0.7"/><use href="#smallFlower" x="82" y="140"/>
+          <path class="stem" d="M 72 150 L 68 163" stroke-width="0.7"/><use href="#tinyFlower" x="68" y="163"/>
+          <path class="stem" d="M 33 140 L 22 128" stroke-width="0.7"/><use href="#tinyFlower" x="22" y="128"/>
+          <path class="stem" d="M 33 140 L 28 153" stroke-width="0.7"/><use href="#tinyFlower" x="28" y="153"/>
+          <path class="stem" d="M 90 190 L 78 178" stroke-width="1"/><use href="#mediumFlower" x="78" y="178"/>
+          <path class="stem" d="M 78 178 L 68 168" stroke-width="0.7"/><use href="#smallFlower" x="68" y="168"/>
+          <path class="stem" d="M 78 178 L 82 165" stroke-width="0.7"/><use href="#tinyFlower" x="82" y="165"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 285 450, 410 190" stroke-width="2"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 410 190 L 440 165" stroke-width="1.5"/><use href="#largeFlower" x="440" y="165"/>
+          <path class="stem" d="M 440 165 L 455 152" stroke-width="1"/><use href="#mediumFlower" x="455" y="152"/>
+          <path class="stem" d="M 440 165 L 428 150" stroke-width="1"/><use href="#mediumFlower" x="428" y="150"/>
+          <path class="stem" d="M 440 165 L 445 180" stroke-width="1"/><use href="#smallFlower" x="445" y="180"/>
+          <path class="stem" d="M 455 152 L 467 140" stroke-width="0.7"/><use href="#smallFlower" x="467" y="140"/>
+          <path class="stem" d="M 455 152 L 460 165" stroke-width="0.7"/><use href="#tinyFlower" x="460" y="165"/>
+          <path class="stem" d="M 428 150 L 418 140" stroke-width="0.7"/><use href="#smallFlower" x="418" y="140"/>
+          <path class="stem" d="M 428 150 L 422 163" stroke-width="0.7"/><use href="#tinyFlower" x="422" y="163"/>
+          <path class="stem" d="M 467 140 L 478 128" stroke-width="0.7"/><use href="#tinyFlower" x="478" y="128"/>
+          <path class="stem" d="M 467 140 L 472 153" stroke-width="0.7"/><use href="#tinyFlower" x="472" y="153"/>
+          <path class="stem" d="M 410 190 L 422 178" stroke-width="1"/><use href="#mediumFlower" x="422" y="178"/>
+          <path class="stem" d="M 422 178 L 432 168" stroke-width="0.7"/><use href="#smallFlower" x="432" y="168"/>
+          <path class="stem" d="M 422 178 L 418 165" stroke-width="0.7"/><use href="#tinyFlower" x="418" y="165"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 228 470, 175 380" stroke-width="1.8"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 175 380 L 148 358" stroke-width="1.5"/><use href="#largeFlower" x="148" y="358"/>
+          <path class="stem" d="M 148 358 L 135 345" stroke-width="1"/><use href="#mediumFlower" x="135" y="345"/>
+          <path class="stem" d="M 148 358 L 160 343" stroke-width="1"/><use href="#mediumFlower" x="160" y="343"/>
+          <path class="stem" d="M 148 358 L 143 373" stroke-width="1"/><use href="#smallFlower" x="143" y="373"/>
+          <path class="stem" d="M 135 345 L 123 333" stroke-width="0.7"/><use href="#smallFlower" x="123" y="333"/>
+          <path class="stem" d="M 135 345 L 129 358" stroke-width="0.7"/><use href="#tinyFlower" x="129" y="358"/>
+          <path class="stem" d="M 160 343 L 170 332" stroke-width="0.7"/><use href="#smallFlower" x="170" y="332"/>
+          <path class="stem" d="M 160 343 L 165 356" stroke-width="0.7"/><use href="#tinyFlower" x="165" y="356"/>
+          <path class="stem" d="M 175 380 L 163 368" stroke-width="1"/><use href="#mediumFlower" x="163" y="368"/>
+          <path class="stem" d="M 163 368 L 155 357" stroke-width="0.7"/><use href="#smallFlower" x="155" y="357"/>
+          <path class="stem" d="M 163 368 L 168 355" stroke-width="0.7"/><use href="#tinyFlower" x="168" y="355"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 272 470, 325 380" stroke-width="1.8"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 325 380 L 352 358" stroke-width="1.5"/><use href="#largeFlower" x="352" y="358"/>
+          <path class="stem" d="M 352 358 L 365 345" stroke-width="1"/><use href="#mediumFlower" x="365" y="345"/>
+          <path class="stem" d="M 352 358 L 340 343" stroke-width="1"/><use href="#mediumFlower" x="340" y="343"/>
+          <path class="stem" d="M 352 358 L 357 373" stroke-width="1"/><use href="#smallFlower" x="357" y="373"/>
+          <path class="stem" d="M 365 345 L 377 333" stroke-width="0.7"/><use href="#smallFlower" x="377" y="333"/>
+          <path class="stem" d="M 365 345 L 371 358" stroke-width="0.7"/><use href="#tinyFlower" x="371" y="358"/>
+          <path class="stem" d="M 340 343 L 330 332" stroke-width="0.7"/><use href="#smallFlower" x="330" y="332"/>
+          <path class="stem" d="M 340 343 L 335 356" stroke-width="0.7"/><use href="#tinyFlower" x="335" y="356"/>
+          <path class="stem" d="M 325 380 L 337 368" stroke-width="1"/><use href="#mediumFlower" x="337" y="368"/>
+          <path class="stem" d="M 337 368 L 345 357" stroke-width="0.7"/><use href="#smallFlower" x="345" y="357"/>
+          <path class="stem" d="M 337 368 L 332 355" stroke-width="0.7"/><use href="#tinyFlower" x="332" y="355"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 242 380, 210 130" stroke-width="1.5"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 210 130 L 188 105" stroke-width="1.5"/><use href="#largeFlower" x="188" y="105"/>
+          <path class="stem" d="M 188 105 L 174 92" stroke-width="1"/><use href="#mediumFlower" x="174" y="92"/>
+          <path class="stem" d="M 188 105 L 200 90" stroke-width="1"/><use href="#mediumFlower" x="200" y="90"/>
+          <path class="stem" d="M 188 105 L 183 120" stroke-width="1"/><use href="#smallFlower" x="183" y="120"/>
+          <path class="stem" d="M 174 92 L 162 80" stroke-width="0.7"/><use href="#smallFlower" x="162" y="80"/>
+          <path class="stem" d="M 174 92 L 168 105" stroke-width="0.7"/><use href="#tinyFlower" x="168" y="105"/>
+          <path class="stem" d="M 200 90 L 212 78" stroke-width="0.7"/><use href="#smallFlower" x="212" y="78"/>
+          <path class="stem" d="M 200 90 L 205 103" stroke-width="0.7"/><use href="#tinyFlower" x="205" y="103"/>
+          <path class="stem" d="M 162 80 L 152 68" stroke-width="0.7"/><use href="#tinyFlower" x="152" y="68"/>
+          <path class="stem" d="M 210 130 L 200 118" stroke-width="1"/><use href="#mediumFlower" x="200" y="118"/>
+          <path class="stem" d="M 200 118 L 192 107" stroke-width="0.7"/><use href="#smallFlower" x="192" y="107"/>
+          <path class="stem" d="M 200 118 L 206 105" stroke-width="0.7"/><use href="#tinyFlower" x="206" y="105"/>
+        </g>
+        <path class="stem" d="M 250 550 Q 258 380, 290 130" stroke-width="1.5"/>
+        <g class="flower-cluster">
+          <path class="stem" d="M 290 130 L 312 105" stroke-width="1.5"/><use href="#largeFlower" x="312" y="105"/>
+          <path class="stem" d="M 312 105 L 326 92" stroke-width="1"/><use href="#mediumFlower" x="326" y="92"/>
+          <path class="stem" d="M 312 105 L 300 90" stroke-width="1"/><use href="#mediumFlower" x="300" y="90"/>
+          <path class="stem" d="M 312 105 L 317 120" stroke-width="1"/><use href="#smallFlower" x="317" y="120"/>
+          <path class="stem" d="M 326 92 L 338 80" stroke-width="0.7"/><use href="#smallFlower" x="338" y="80"/>
+          <path class="stem" d="M 326 92 L 332 105" stroke-width="0.7"/><use href="#tinyFlower" x="332" y="105"/>
+          <path class="stem" d="M 300 90 L 288 78" stroke-width="0.7"/><use href="#smallFlower" x="288" y="78"/>
+          <path class="stem" d="M 300 90 L 295 103" stroke-width="0.7"/><use href="#tinyFlower" x="295" y="103"/>
+          <path class="stem" d="M 338 80 L 348 68" stroke-width="0.7"/><use href="#tinyFlower" x="348" y="68"/>
+          <path class="stem" d="M 290 130 L 300 118" stroke-width="1"/><use href="#mediumFlower" x="300" y="118"/>
+          <path class="stem" d="M 300 118 L 308 107" stroke-width="0.7"/><use href="#smallFlower" x="308" y="107"/>
+          <path class="stem" d="M 300 118 L 294 105" stroke-width="0.7"/><use href="#tinyFlower" x="294" y="105"/>
+        </g>
+        <g class="fill-flowers">
+          <path class="stem" d="M 108 295 L 100 283" stroke-width="0.7"/><use href="#smallFlower" x="100" y="283"/>
+          <path class="stem" d="M 112 318 L 105 307" stroke-width="0.7"/><use href="#tinyFlower" x="105" y="307"/>
+          <path class="stem" d="M 95 265 L 88 255" stroke-width="0.7"/><use href="#tinyFlower" x="88" y="255"/>
+          <path class="stem" d="M 75 290 L 68 280" stroke-width="0.7"/><use href="#smallFlower" x="68" y="280"/>
+          <path class="stem" d="M 55 270 L 48 260" stroke-width="0.7"/><use href="#tinyFlower" x="48" y="260"/>
+          <path class="stem" d="M 115 245 L 108 235" stroke-width="0.7"/><use href="#tinyFlower" x="108" y="235"/>
+          <path class="stem" d="M 75 340 L 68 330" stroke-width="0.7"/><use href="#tinyFlower" x="68" y="330"/>
+          <path class="stem" d="M 100 370 L 93 360" stroke-width="0.7"/><use href="#smallFlower" x="93" y="360"/>
+          <path class="stem" d="M 392 278 L 400 267" stroke-width="0.7"/><use href="#smallFlower" x="400" y="267"/>
+          <path class="stem" d="M 388 302 L 396 291" stroke-width="0.7"/><use href="#tinyFlower" x="396" y="291"/>
+          <path class="stem" d="M 405 250 L 413 240" stroke-width="0.7"/><use href="#tinyFlower" x="413" y="240"/>
+          <path class="stem" d="M 425 270 L 432 260" stroke-width="0.7"/><use href="#smallFlower" x="432" y="260"/>
+          <path class="stem" d="M 445 250 L 452 240" stroke-width="0.7"/><use href="#tinyFlower" x="452" y="240"/>
+          <path class="stem" d="M 385 228 L 393 218" stroke-width="0.7"/><use href="#tinyFlower" x="393" y="218"/>
+          <path class="stem" d="M 425 348 L 433 338" stroke-width="0.7"/><use href="#tinyFlower" x="433" y="338"/>
+          <path class="stem" d="M 400 365 L 408 355" stroke-width="0.7"/><use href="#smallFlower" x="408" y="355"/>
+          <path class="stem" d="M 210 88 L 205 76" stroke-width="0.7"/><use href="#tinyFlower" x="205" y="76"/>
+          <path class="stem" d="M 273 85 L 278 73" stroke-width="0.7"/><use href="#tinyFlower" x="278" y="73"/>
+          <path class="stem" d="M 195 115 L 190 103" stroke-width="0.7"/><use href="#smallFlower" x="190" y="103"/>
+          <path class="stem" d="M 288 112 L 293 100" stroke-width="0.7"/><use href="#smallFlower" x="293" y="100"/>
+          <path class="stem" d="M 218 310 L 213 300" stroke-width="0.7"/><use href="#tinyFlower" x="213" y="300"/>
+          <path class="stem" d="M 282 310 L 287 300" stroke-width="0.7"/><use href="#tinyFlower" x="287" y="300"/>
+          <path class="stem" d="M 225 340 L 220 328" stroke-width="0.7"/><use href="#smallFlower" x="220" y="328"/>
+          <path class="stem" d="M 275 338 L 280 326" stroke-width="0.7"/><use href="#smallFlower" x="280" y="326"/>
+          <path class="stem" d="M 250 360 L 245 348" stroke-width="0.7"/><use href="#smallFlower" x="245" y="348"/>
+          <path class="stem" d="M 253 362 L 258 350" stroke-width="0.7"/><use href="#tinyFlower" x="258" y="350"/>
+          <path class="stem" d="M 45 178 L 38 167" stroke-width="0.7"/><use href="#tinyFlower" x="38" y="167"/>
+          <path class="stem" d="M 60 200 L 53 190" stroke-width="0.7"/><use href="#smallFlower" x="53" y="190"/>
+          <path class="stem" d="M 40 260 L 33 250" stroke-width="0.7"/><use href="#tinyFlower" x="33" y="250"/>
+          <path class="stem" d="M 55 340 L 48 330" stroke-width="0.7"/><use href="#smallFlower" x="48" y="330"/>
+          <path class="stem" d="M 455 178 L 462 167" stroke-width="0.7"/><use href="#tinyFlower" x="462" y="167"/>
+          <path class="stem" d="M 440 200 L 447 190" stroke-width="0.7"/><use href="#smallFlower" x="447" y="190"/>
+          <path class="stem" d="M 460 260 L 467 250" stroke-width="0.7"/><use href="#tinyFlower" x="467" y="250"/>
+          <path class="stem" d="M 445 340 L 452 330" stroke-width="0.7"/><use href="#smallFlower" x="452" y="330"/>
+          <path class="stem" d="M 240 42 L 235 30" stroke-width="0.7"/><use href="#tinyFlower" x="235" y="30"/>
+          <path class="stem" d="M 260 40 L 265 28" stroke-width="0.7"/><use href="#tinyFlower" x="265" y="28"/>
+          <path class="stem" d="M 205 195 L 199 183" stroke-width="0.7"/><use href="#smallFlower" x="199" y="183"/>
+          <path class="stem" d="M 295 195 L 301 183" stroke-width="0.7"/><use href="#smallFlower" x="301" y="183"/>
+          <path class="stem" d="M 215 235 L 209 223" stroke-width="0.7"/><use href="#tinyFlower" x="209" y="223"/>
+          <path class="stem" d="M 285 233 L 291 221" stroke-width="0.7"/><use href="#tinyFlower" x="291" y="221"/>
+          <path class="stem" d="M 155 72 L 148 61" stroke-width="0.7"/><use href="#tinyFlower" x="148" y="61"/>
+          <path class="stem" d="M 345 72 L 352 61" stroke-width="0.7"/><use href="#tinyFlower" x="352" y="61"/>
+        </g>
+        <g class="dense-center">
+          <path class="stem" d="M 250 550 Q 248 480, 240 380" stroke-width="1.5"/><use href="#largeFlower" x="240" y="380"/>
+          <path class="stem" d="M 240 380 L 228 368" stroke-width="1"/><use href="#mediumFlower" x="228" y="368"/>
+          <path class="stem" d="M 240 380 L 252 365" stroke-width="1"/><use href="#mediumFlower" x="252" y="365"/>
+          <path class="stem" d="M 228 368 L 218 356" stroke-width="0.7"/><use href="#smallFlower" x="218" y="356"/>
+          <path class="stem" d="M 228 368 L 222 380" stroke-width="0.7"/><use href="#tinyFlower" x="222" y="380"/>
+          <path class="stem" d="M 252 365 L 262 353" stroke-width="0.7"/><use href="#smallFlower" x="262" y="353"/>
+          <path class="stem" d="M 252 365 L 258 377" stroke-width="0.7"/><use href="#tinyFlower" x="258" y="377"/>
+          <path class="stem" d="M 218 356 L 208 344" stroke-width="0.7"/><use href="#tinyFlower" x="208" y="344"/>
+          <path class="stem" d="M 262 353 L 272 341" stroke-width="0.7"/><use href="#tinyFlower" x="272" y="341"/>
+          <path class="stem" d="M 250 550 Q 252 480, 260 380" stroke-width="1.5"/><use href="#largeFlower" x="260" y="380"/>
+          <path class="stem" d="M 260 380 L 272 368" stroke-width="1"/><use href="#mediumFlower" x="272" y="368"/>
+          <path class="stem" d="M 260 380 L 248 367" stroke-width="1"/><use href="#mediumFlower" x="248" y="367"/>
+          <path class="stem" d="M 272 368 L 282 356" stroke-width="0.7"/><use href="#smallFlower" x="282" y="356"/>
+          <path class="stem" d="M 272 368 L 278 380" stroke-width="0.7"/><use href="#tinyFlower" x="278" y="380"/>
+          <path class="stem" d="M 248 367 L 238 355" stroke-width="0.7"/><use href="#smallFlower" x="238" y="355"/>
+          <path class="stem" d="M 248 367 L 242 379" stroke-width="0.7"/><use href="#tinyFlower" x="242" y="379"/>
+          <path class="stem" d="M 250 550 Q 238 490, 215 350" stroke-width="1.5"/><use href="#largeFlower" x="215" y="350"/>
+          <path class="stem" d="M 215 350 L 202 337" stroke-width="1"/><use href="#mediumFlower" x="202" y="337"/>
+          <path class="stem" d="M 215 350 L 227 335" stroke-width="1"/><use href="#mediumFlower" x="227" y="335"/>
+          <path class="stem" d="M 215 350 L 210 365" stroke-width="1"/><use href="#smallFlower" x="210" y="365"/>
+          <path class="stem" d="M 202 337 L 192 325" stroke-width="0.7"/><use href="#smallFlower" x="192" y="325"/>
+          <path class="stem" d="M 202 337 L 196 349" stroke-width="0.7"/><use href="#tinyFlower" x="196" y="349"/>
+          <path class="stem" d="M 227 335 L 237 323" stroke-width="0.7"/><use href="#smallFlower" x="237" y="323"/>
+          <path class="stem" d="M 227 335 L 233 347" stroke-width="0.7"/><use href="#tinyFlower" x="233" y="347"/>
+          <path class="stem" d="M 192 325 L 183 313" stroke-width="0.7"/><use href="#tinyFlower" x="183" y="313"/>
+          <path class="stem" d="M 237 323 L 247 311" stroke-width="0.7"/><use href="#tinyFlower" x="247" y="311"/>
+          <path class="stem" d="M 250 550 Q 262 490, 285 350" stroke-width="1.5"/><use href="#largeFlower" x="285" y="350"/>
+          <path class="stem" d="M 285 350 L 298 337" stroke-width="1"/><use href="#mediumFlower" x="298" y="337"/>
+          <path class="stem" d="M 285 350 L 273 335" stroke-width="1"/><use href="#mediumFlower" x="273" y="335"/>
+          <path class="stem" d="M 285 350 L 290 365" stroke-width="1"/><use href="#smallFlower" x="290" y="365"/>
+          <path class="stem" d="M 298 337 L 308 325" stroke-width="0.7"/><use href="#smallFlower" x="308" y="325"/>
+          <path class="stem" d="M 298 337 L 304 349" stroke-width="0.7"/><use href="#tinyFlower" x="304" y="349"/>
+          <path class="stem" d="M 273 335 L 263 323" stroke-width="0.7"/><use href="#smallFlower" x="263" y="323"/>
+          <path class="stem" d="M 273 335 L 267 347" stroke-width="0.7"/><use href="#tinyFlower" x="267" y="347"/>
+          <path class="stem" d="M 308 325 L 317 313" stroke-width="0.7"/><use href="#tinyFlower" x="317" y="313"/>
+          <path class="stem" d="M 263 323 L 253 311" stroke-width="0.7"/><use href="#tinyFlower" x="253" y="311"/>
+          <path class="stem" d="M 250 550 Q 244 510, 230 420" stroke-width="1.2"/><use href="#mediumFlower" x="230" y="420"/>
+          <path class="stem" d="M 230 420 L 220 408" stroke-width="0.8"/><use href="#smallFlower" x="220" y="408"/>
+          <path class="stem" d="M 230 420 L 240 407" stroke-width="0.8"/><use href="#smallFlower" x="240" y="407"/>
+          <path class="stem" d="M 220 408 L 212 397" stroke-width="0.6"/><use href="#tinyFlower" x="212" y="397"/>
+          <path class="stem" d="M 240 407 L 248 396" stroke-width="0.6"/><use href="#tinyFlower" x="248" y="396"/>
+          <path class="stem" d="M 250 550 Q 250 510, 250 420" stroke-width="1.2"/><use href="#mediumFlower" x="250" y="420"/>
+          <path class="stem" d="M 250 420 L 240 408" stroke-width="0.8"/><use href="#smallFlower" x="240" y="408"/>
+          <path class="stem" d="M 250 420 L 260 406" stroke-width="0.8"/><use href="#smallFlower" x="260" y="406"/>
+          <path class="stem" d="M 240 408 L 232 396" stroke-width="0.6"/><use href="#tinyFlower" x="232" y="396"/>
+          <path class="stem" d="M 260 406 L 268 394" stroke-width="0.6"/><use href="#tinyFlower" x="268" y="394"/>
+          <path class="stem" d="M 250 550 Q 256 510, 270 420" stroke-width="1.2"/><use href="#mediumFlower" x="270" y="420"/>
+          <path class="stem" d="M 270 420 L 260 408" stroke-width="0.8"/><use href="#smallFlower" x="260" y="408"/>
+          <path class="stem" d="M 270 420 L 280 407" stroke-width="0.8"/><use href="#smallFlower" x="280" y="407"/>
+          <path class="stem" d="M 260 408 L 252 396" stroke-width="0.6"/><use href="#tinyFlower" x="252" y="396"/>
+          <path class="stem" d="M 280 407 L 288 395" stroke-width="0.6"/><use href="#tinyFlower" x="288" y="395"/>
+          <path class="stem" d="M 250 550 Q 242 520, 225 465" stroke-width="1"/><use href="#smallFlower" x="225" y="465"/>
+          <path class="stem" d="M 225 465 L 215 453" stroke-width="0.7"/><use href="#tinyFlower" x="215" y="453"/>
+          <path class="stem" d="M 225 465 L 235 452" stroke-width="0.7"/><use href="#tinyFlower" x="235" y="452"/>
+          <path class="stem" d="M 250 550 Q 250 520, 250 468" stroke-width="1"/><use href="#smallFlower" x="250" y="468"/>
+          <path class="stem" d="M 250 468 L 242 456" stroke-width="0.7"/><use href="#tinyFlower" x="242" y="456"/>
+          <path class="stem" d="M 250 468 L 258 455" stroke-width="0.7"/><use href="#tinyFlower" x="258" y="455"/>
+          <path class="stem" d="M 250 550 Q 258 520, 275 465" stroke-width="1"/><use href="#smallFlower" x="275" y="465"/>
+          <path class="stem" d="M 275 465 L 265 453" stroke-width="0.7"/><use href="#tinyFlower" x="265" y="453"/>
+          <path class="stem" d="M 275 465 L 285 452" stroke-width="0.7"/><use href="#tinyFlower" x="285" y="452"/>
+          <path class="stem" d="M 250 550 Q 245 430, 232 310" stroke-width="1.3"/><use href="#largeFlower" x="232" y="310"/>
+          <path class="stem" d="M 232 310 L 220 297" stroke-width="0.9"/><use href="#mediumFlower" x="220" y="297"/>
+          <path class="stem" d="M 232 310 L 244 295" stroke-width="0.9"/><use href="#mediumFlower" x="244" y="295"/>
+          <path class="stem" d="M 232 310 L 227 325" stroke-width="0.9"/><use href="#smallFlower" x="227" y="325"/>
+          <path class="stem" d="M 220 297 L 210 285" stroke-width="0.7"/><use href="#smallFlower" x="210" y="285"/>
+          <path class="stem" d="M 220 297 L 214 309" stroke-width="0.7"/><use href="#tinyFlower" x="214" y="309"/>
+          <path class="stem" d="M 244 295 L 254 283" stroke-width="0.7"/><use href="#smallFlower" x="254" y="283"/>
+          <path class="stem" d="M 244 295 L 250 307" stroke-width="0.7"/><use href="#tinyFlower" x="250" y="307"/>
+          <path class="stem" d="M 250 550 Q 255 430, 268 310" stroke-width="1.3"/><use href="#largeFlower" x="268" y="310"/>
+          <path class="stem" d="M 268 310 L 280 297" stroke-width="0.9"/><use href="#mediumFlower" x="280" y="297"/>
+          <path class="stem" d="M 268 310 L 256 295" stroke-width="0.9"/><use href="#mediumFlower" x="256" y="295"/>
+          <path class="stem" d="M 268 310 L 273 325" stroke-width="0.9"/><use href="#smallFlower" x="273" y="325"/>
+          <path class="stem" d="M 280 297 L 290 285" stroke-width="0.7"/><use href="#smallFlower" x="290" y="285"/>
+          <path class="stem" d="M 280 297 L 286 309" stroke-width="0.7"/><use href="#tinyFlower" x="286" y="309"/>
+          <path class="stem" d="M 256 295 L 246 283" stroke-width="0.7"/><use href="#smallFlower" x="246" y="283"/>
+          <path class="stem" d="M 256 295 L 250 307" stroke-width="0.7"/><use href="#tinyFlower" x="250" y="307"/>
+          <path class="stem" d="M 250 550 Q 247 460, 243 400" stroke-width="0.8"/><use href="#smallFlower" x="243" y="400"/>
+          <path class="stem" d="M 250 550 Q 253 460, 257 400" stroke-width="0.8"/><use href="#smallFlower" x="257" y="400"/>
+          <path class="stem" d="M 250 550 Q 244 465, 235 430" stroke-width="0.8"/><use href="#tinyFlower" x="235" y="430"/>
+          <path class="stem" d="M 250 550 Q 256 465, 265 430" stroke-width="0.8"/><use href="#tinyFlower" x="265" y="430"/>
+          <path class="stem" d="M 250 550 Q 246 440, 238 390" stroke-width="0.8"/><use href="#tinyFlower" x="238" y="390"/>
+          <path class="stem" d="M 250 550 Q 254 440, 262 390" stroke-width="0.8"/><use href="#tinyFlower" x="262" y="390"/>
+          <path class="stem" d="M 250 550 Q 240 455, 218 400" stroke-width="0.8"/><use href="#tinyFlower" x="218" y="400"/>
+          <path class="stem" d="M 250 550 Q 260 455, 282 400" stroke-width="0.8"/><use href="#tinyFlower" x="282" y="400"/>
+          <path class="stem" d="M 250 550 Q 238 445, 205 360" stroke-width="0.8"/><use href="#smallFlower" x="205" y="360"/>
+          <path class="stem" d="M 250 550 Q 262 445, 295 360" stroke-width="0.8"/><use href="#smallFlower" x="295" y="360"/>
+          <path class="stem" d="M 250 550 Q 246 430, 240 340" stroke-width="0.8"/><use href="#tinyFlower" x="240" y="340"/>
+          <path class="stem" d="M 250 550 Q 254 430, 260 340" stroke-width="0.8"/><use href="#tinyFlower" x="260" y="340"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;
