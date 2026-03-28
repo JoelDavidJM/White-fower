@@ -410,6 +410,21 @@ for (var y = 0; y < canvas.height; y += step)
       document.getElementById('corazon-mount').innerHTML = window.__CORAZON_HTML__ || "";
       document.getElementById('particulas-mount').innerHTML = window.__PARTICULAS_HTML__ || "";
 
+      // Fix stem growth: measure real SVG path lengths and restart animation
+      requestAnimationFrame(function() {
+        // --- Stem animation ---
+        var stemPaths = document.querySelectorAll('.stem-path');
+        stemPaths.forEach(function(path) {
+          var len = path.getTotalLength();
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+          // Force browser to acknowledge the initial state before animating
+          path.getBoundingClientRect();
+          path.style.transition = 'stroke-dashoffset 2s ease-in-out';
+          path.style.strokeDashoffset = '0';
+        });
+      });
+
       var escena = document.getElementById('escena-flores');
       escena.style.opacity = "0";
       escena.style.transition = "none";
@@ -1618,7 +1633,7 @@ window.__CORAZON_INIT__ = function() {
     return [radius * Math.cos(v) * s, y2d * s, radius * Math.sin(v) * s];
   }
 
-  var N = 4000;
+  var isMobile = window.innerWidth < 1000; var N = isMobile ? 1200 : 4000;
   var pts = [];
   for (var i = 0; i < N; i++) {
     var u = Math.random() * Math.PI * 2;
@@ -1701,14 +1716,21 @@ window.__PARTICULAS_INIT__ = function () {
   var W, H;
 
   function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    var isMob = window.innerWidth < window.innerHeight; // portrait = mobile rotated
+    if (isMob) {
+      // Canvas is inside a rotated container: swap dimensions so circles stay circular
+      W = canvas.width = window.innerHeight;
+      H = canvas.height = window.innerWidth;
+    } else {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
   }
   resize();
   window.addEventListener('resize', resize);
 
   // ── Parámetros principales (equivalente a particleCount = 8000) ──
-  var PARTICLE_COUNT = 1000;
+  var isMobile = window.innerWidth < 1000; var PARTICLE_COUNT = isMobile ? 300 : 1000;
   var STAR_COUNT = 0;
   var SPREAD = 15;   // equivale al * 15 del posArray
   var STAR_SPREAD = 20;

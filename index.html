@@ -12,65 +12,67 @@
 <body>
   <audio id="bgMusic" src="music.mp4" loop preload="auto"></audio>
 
-  <!-- ======= INTRO ======= -->
-  <div id="intro">
-    <div class="intro-bg-heart">♡</div>
-    <div class="intro-particles">
-      <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
-      <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
-      <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
-      <div class="intro-particle"></div>
-    </div>
-    <div class="intro-inner">
-      <div class="intro-icon">
-        <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.15)" stroke="rgba(255,180,200,0.5)" stroke-width="0.8" />
-          <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(72 40 30)" />
-          <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(144 40 30)" />
-          <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(216 40 30)" />
-          <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(288 40 30)" />
-          <circle cx="40" cy="30" r="5" fill="rgba(255,220,230,0.5)" stroke="rgba(255,180,200,0.8)" stroke-width="0.5" />
-          <line x1="40" y1="58" x2="40" y2="95" stroke="rgba(100,160,80,0.6)" stroke-width="1.2" stroke-linecap="round" />
-          <ellipse cx="30" cy="75" rx="12" ry="5" fill="rgba(80,140,60,0.2)" stroke="rgba(120,200,100,0.4)" stroke-width="0.6" transform="rotate(-30 30 75)" />
-          <ellipse cx="50" cy="82" rx="10" ry="4" fill="rgba(80,140,60,0.2)" stroke="rgba(120,200,100,0.4)" stroke-width="0.6" transform="rotate(25 50 82)" />
-        </svg>
+  <div id="perf-wrapper">
+    <!-- ======= INTRO ======= -->
+    <div id="intro">
+      <div class="intro-bg-heart">♡</div>
+      <div class="intro-particles">
+        <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
+        <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
+        <div class="intro-particle"></div><div class="intro-particle"></div><div class="intro-particle"></div>
+        <div class="intro-particle"></div>
       </div>
-      <p class="intro-eyebrow">Una pequeña sorpresa para ti</p>
-      <h1 class="intro-title">Lirios <em>Blancos</em></h1>
-      <div class="intro-ornament">
-        <div class="intro-ornament-line"></div>
-        <div class="intro-ornament-dot"></div>
-        <div class="intro-ornament-diamond"></div>
-        <div class="intro-ornament-dot"></div>
-        <div class="intro-ornament-line"></div>
-      </div>
-      <button id="startBtn" onclick="handleBtnClick(event)">
-        <div class="btn-inner">
-          <div class="btn-border"></div>
-          <div class="btn-fill" id="btnFill"></div>
-          <div class="btn-corner btn-corner--tl"></div>
-          <div class="btn-corner btn-corner--tr"></div>
-          <div class="btn-corner btn-corner--bl"></div>
-          <div class="btn-corner btn-corner--br"></div>
-          <span class="btn-dot"></span>
-          <span class="btn-label">Descubrir el mensaje</span>
-          <span class="btn-dot"></span>
-          <span class="btn-loading-text" id="btnLoadingText">Abriendo...</span>
+      <div class="intro-inner">
+        <div class="intro-icon">
+          <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.15)" stroke="rgba(255,180,200,0.5)" stroke-width="0.8" />
+            <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(72 40 30)" />
+            <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(144 40 30)" />
+            <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(216 40 30)" />
+            <ellipse cx="40" cy="30" rx="10" ry="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,180,200,0.4)" stroke-width="0.8" transform="rotate(288 40 30)" />
+            <circle cx="40" cy="30" r="5" fill="rgba(255,220,230,0.5)" stroke="rgba(255,180,200,0.8)" stroke-width="0.5" />
+            <line x1="40" y1="58" x2="40" y2="95" stroke="rgba(100,160,80,0.6)" stroke-width="1.2" stroke-linecap="round" />
+            <ellipse cx="30" cy="75" rx="12" ry="5" fill="rgba(80,140,60,0.2)" stroke="rgba(120,200,100,0.4)" stroke-width="0.6" transform="rotate(-30 30 75)" />
+            <ellipse cx="50" cy="82" rx="10" ry="4" fill="rgba(80,140,60,0.2)" stroke="rgba(120,200,100,0.4)" stroke-width="0.6" transform="rotate(25 50 82)" />
+          </svg>
         </div>
-        <div class="btn-progress-bar" id="btnProgressBar"></div>
-      </button>
+        <p class="intro-eyebrow">Una pequeña sorpresa para ti</p>
+        <h1 class="intro-title">Lirios <em>Blancos</em></h1>
+        <div class="intro-ornament">
+          <div class="intro-ornament-line"></div>
+          <div class="intro-ornament-dot"></div>
+          <div class="intro-ornament-diamond"></div>
+          <div class="intro-ornament-dot"></div>
+          <div class="intro-ornament-line"></div>
+        </div>
+        <button id="startBtn" onclick="handleBtnClick(event)">
+          <div class="btn-inner">
+            <div class="btn-border"></div>
+            <div class="btn-fill" id="btnFill"></div>
+            <div class="btn-corner btn-corner--tl"></div>
+            <div class="btn-corner btn-corner--tr"></div>
+            <div class="btn-corner btn-corner--bl"></div>
+            <div class="btn-corner btn-corner--br"></div>
+            <span class="btn-dot"></span>
+            <span class="btn-label">Descubrir el mensaje</span>
+            <span class="btn-dot"></span>
+            <span class="btn-loading-text" id="btnLoadingText">Abriendo...</span>
+          </div>
+          <div class="btn-progress-bar" id="btnProgressBar"></div>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <canvas id="palabras-canvas"></canvas>
+    <canvas id="palabras-canvas"></canvas>
 
-  <div id="escena-flores" class="paused">
-    <div class="scene">
-      <div id="lirios-mount" style="position:relative;z-index:2;"></div>
+    <div id="escena-flores" class="paused">
+      <div class="scene">
+        <div id="lirios-mount" style="position:relative;z-index:2;"></div>
+      </div>
+      <div id="paniculata-mount"></div>
+      <div id="corazon-mount"></div>
+      <div id="particulas-mount"></div>
     </div>
-    <div id="paniculata-mount"></div>
-    <div id="corazon-mount"></div>
-    <div id="particulas-mount"></div>
   </div>
 
   <script src="app.js" defer></script>
