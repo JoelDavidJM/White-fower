@@ -1,4 +1,4 @@
-﻿/* palabras.js — modificado: expone startAnimation para que el HTML pueda llamarla */
+/* palabras.js — modificado: expone startAnimation para que el HTML pueda llamarla */
 
 window.__PALABRAS_INIT__ = function () {
 
@@ -1906,37 +1906,65 @@ window.initPaniculata = function () {
   if (!svg) return;
   var stems = Array.from(svg.querySelectorAll('path.stem'));
   var flowers = Array.from(svg.querySelectorAll('use'));
+
   function getPathEndY(path) {
     var d = path.getAttribute('d');
-    if(!d) return 0;
+    if (!d) return 0;
     var nums = d.match(/-?[\d.]+/g).map(Number);
     return nums[nums.length - 1];
   }
   function getFlowerY(use) { return parseFloat(use.getAttribute('y') || 0); }
+
+  // Pre-calculate and setup initial state in a single pass
   stems.forEach(function (stem) {
     try {
       var len = stem.getTotalLength();
       stem.style.strokeDasharray = len;
       stem.style.strokeDashoffset = len;
       stem.style.transition = 'none';
+      stem._len = len; // Store length to avoid re-reading
     } catch (e) { }
   });
-  flowers.forEach(function (f) { f.style.opacity = '0'; f.style.transition = 'none'; });
-  var stemsWithY = stems.map(function (s) { return { el: s, y: getPathEndY(s) }; }).sort(function (a, b) { return b.y - a.y; });
-  var extraDelay = 2500, totalStemDuration = 4200;
-  stemsWithY.forEach(function (item, i) {
-    setTimeout(function () {
-      item.el.style.transition = 'stroke-dashoffset 0.15s ease-out';
-      item.el.style.strokeDashoffset = '0';
-    }, extraDelay + i * (totalStemDuration / stemsWithY.length));
+  flowers.forEach(function (f) { 
+    f.style.opacity = '0'; 
+    f.style.transition = 'none'; 
   });
+
+  var stemsWithY = stems.map(function (s) { return { el: s, y: getPathEndY(s) }; }).sort(function (a, b) { return b.y - a.y; });
   var flowersWithY = flowers.map(function (f) { return { el: f, y: getFlowerY(f) }; }).sort(function (a, b) { return b.y - a.y; });
-  var flowerStart = extraDelay + totalStemDuration * 0.2, totalFlowerDur = 1200;
-  flowersWithY.forEach(function (item, i) {
-    item.el.style.setProperty('--i', (i % 20).toString());
-    setTimeout(function () {
-      item.el.style.transition = 'opacity 0.3s ease-in';
-      item.el.style.opacity = '1';
-    }, flowerStart + i * (totalFlowerDur / flowersWithY.length));
+
+  var extraDelay = 2500;
+  var totalStemDuration = 4200;
+  var totalFlowerDur = 1200;
+  var flowerStart = extraDelay + totalStemDuration * 0.2;
+
+  // Batching updates: Group elements by timing buckets to reduce number of timers
+  function batchAnimate(items, startTime, totalDuration, styleCallback) {
+    var batchSize = Math.max(4, Math.ceil(items.length / 40)); // Group every ~40ms approximately
+    for (var i = 0; i < items.length; i += batchSize) {
+      (function(index) {
+        var delay = startTime + (index * (totalDuration / items.length));
+        setTimeout(function() {
+          requestAnimationFrame(function() {
+            for (var j = index; j < Math.min(index + batchSize, items.length); j++) {
+              styleCallback(items[j].el, j);
+            }
+          });
+        }, delay);
+      })(i);
+    }
+  }
+
+  // Animate stems in batches
+  batchAnimate(stemsWithY, extraDelay, totalStemDuration, function(el) {
+    el.style.transition = 'stroke-dashoffset 0.15s ease-out';
+    el.style.strokeDashoffset = '0';
+  });
+
+  // Animate flowers in batches
+  batchAnimate(flowersWithY, flowerStart, totalFlowerDur, function(el, i) {
+    el.style.setProperty('--i', (i % 20).toString());
+    el.style.transition = 'opacity 0.3s ease-in';
+    el.style.opacity = '1';
   });
 };
