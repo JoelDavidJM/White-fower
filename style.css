@@ -142,4 +142,64 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
 @keyframes floatHeart { 0% { transform: translateY(0) scale(0.4) rotate(var(--rot)); opacity: 1; } 40% { transform: translateY(-60px) scale(1.1) rotate(var(--rot)); opacity: 1; } 100% { transform: translateY(-140px) scale(0.7) rotate(var(--rot)); opacity: 0; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.5); opacity: 1; } }
-@media (max-width: 1000px) { body { width: 100vh; height: 100vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); } #palabras-canvas { width: 180vw; height: 100vh; top: 50%; left: 50%; transform: translate(-50%, -50%); } .scene { right: 5vw; } .bouquet-wrapper { transform: scale(0.7); } .flowers { left: -10em; top: -9em; } .bouquet-container { right: -16.07em; bottom: 3em; } #heartCanvas { left: -4em; top: 13em; position: fixed; width: 460px; height: 460px; } }
+@media (max-width: 1000px) {
+  body { 
+    width: 100vh; 
+    height: 100vw; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) rotate(90deg); 
+  }
+  
+  #palabras-canvas { 
+    width: 180vw; 
+    height: 100vh; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+  
+  /* --- Intro Responsive Rotated --- */
+  .intro-inner { transform: scale(0.9); }
+  .intro-title { font-size: 5rem; }
+  
+  /* --- Flowers Responsive Rotated --- */
+  .scene { 
+    right: 12vw; 
+    bottom: 0; 
+  }
+  
+  .flowers { transform: scale(1.1); left: -9em; top: -10em; }
+  
+  /* --- Bouquet Responsive Rotated --- */
+  .bouquet-wrapper { 
+    transform: translateX(10%) scale(0.8); 
+    right: 24vw; 
+    bottom: -6em; 
+  }
+  
+  .bouquet-container { 
+    right: -10em; 
+    bottom: 2em; 
+  }
+  
+  #corazon-mount {
+    position: fixed;
+  }
+  
+  #corazon-wrapper {
+    position: fixed;
+    top: 6em;
+    left: -4em !important;
+    width: 100vh;
+    height: 100vw;
+  }
+
+  #heartCanvas { 
+    width: 450px; 
+    height: 450px; 
+  }
+}
+
+
