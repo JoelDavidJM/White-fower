@@ -129,7 +129,7 @@ window.__PALABRAS_INIT__ = function () {
       this.size = Math.max(0.3, this.size - 0.04);
     }
   };
-    var glowCache = {};
+  var glowCache = {};
   function getGlowImage(color, glowColor, size) {
     var key = color + glowColor + size.toFixed(1);
     var canvas2 = glowCache[key];

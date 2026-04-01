@@ -7,18 +7,22 @@ window.__PARTICULAS_INIT__ = function () {
   var ctx = canvas.getContext('2d');
   var W, H;
 
+  var isMobile = window.innerWidth < 768;
+
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
+    isMobile = window.innerWidth < 768;
   }
   resize();
   window.addEventListener('resize', resize);
 
-  // ── Parámetros principales (equivalente a particleCount = 8000) ──
-  var PARTICLE_COUNT = 1000;
+  // ── Parámetros principales ──
+  var PARTICLE_COUNT = isMobile ? 500 : 1000;
   var STAR_COUNT = 0;
-  var SPREAD = 15;   // equivale al * 15 del posArray
+  var SPREAD = isMobile ? 1 : 15;
   var STAR_SPREAD = 20;
+  var FOV = isMobile ? 5 : 400;
 
   var mouseX = 0;
   var mouseY = 0;
@@ -27,7 +31,7 @@ window.__PARTICULAS_INIT__ = function () {
     mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
   });
 
-  // ── Rotación acumulada (igual que Three.js) ──
+  // ── Rotación acumulada ──
   var rotX = 0, rotY = 0;
   var starRotX = 0, starRotY = 0;
 
@@ -65,11 +69,9 @@ window.__PARTICULAS_INIT__ = function () {
 
   // ── Rotación 3D ──
   function rotateXY(x, y, z, rx, ry) {
-    // Rotar en Y
     var cosY = Math.cos(ry), sinY = Math.sin(ry);
     var x1 = x * cosY + z * sinY;
     var z1 = -x * sinY + z * cosY;
-    // Rotar en X
     var cosX = Math.cos(rx), sinX = Math.sin(rx);
     var y2 = y * cosX - z1 * sinX;
     var z2 = y * sinX + z1 * cosX;
@@ -79,18 +81,15 @@ window.__PARTICULAS_INIT__ = function () {
   function draw() {
     requestAnimationFrame(draw);
 
-    // Fondo negro sólido (sin estelas, como Three.js)
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#00010e';
     ctx.fillRect(0, 0, W, H);
 
-    // Actualizar rotación acumulada
     rotX += 0.0003;
     rotY += 0.0005;
     starRotX += 0.0001;
     starRotY += 0.0002;
 
-    // Parallax suavizado
     parallaxX += (mouseX * 0.1 - parallaxX) * 0.05;
     parallaxY += (mouseY * 0.1 - parallaxY) * 0.05;
 
@@ -110,12 +109,12 @@ window.__PARTICULAS_INIT__ = function () {
       ctx.fill();
     }
 
-    // ── Dibujar partículas cyan principales ──
+    // ── Dibujar partículas principales ──
     for (var j = 0; j < particles.length; j++) {
       var pt = particles[j];
       var rp = rotateXY(pt.x, pt.y, pt.z, rotX, rotY);
       var pp = project(rp.x, rp.y, rp.z, cx, cy);
-      var depth = (rp.z + SPREAD / 2) / SPREAD; // 0..1
+      var depth = (rp.z + SPREAD / 2) / SPREAD;
       var alpha = 1 + depth * 0.3;
       var radius = Math.max(0.3, pp.scale * 2.2);
 
@@ -123,18 +122,6 @@ window.__PARTICULAS_INIT__ = function () {
       ctx.arc(pp.sx, pp.sy, radius, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255,255,255,' + alpha.toFixed(2) + ')';
       ctx.fill();
-
-      // var s = radius * 1.2;
-      // ctx.beginPath();
-      // ctx.save();
-      // ctx.translate(pp.sx, pp.sy);
-      // ctx.scale(s, s);
-      // ctx.moveTo(0, -0.5);
-      // ctx.bezierCurveTo(0.5, -1, 1, -0.3, 0, 0.6);
-      // ctx.bezierCurveTo(-1, -0.3, -0.5, -1, 0, -0.5);
-      // ctx.restore();
-      // ctx.fillStyle = 'rgba(255,255,255,' + alpha.toFixed(2) + ')';
-      // ctx.fill();
     }
   }
 
