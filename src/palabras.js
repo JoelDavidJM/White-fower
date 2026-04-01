@@ -164,7 +164,7 @@ window.__PALABRAS_INIT__ = function () {
       fs--;
       tc.font = "bold " + fs + "px 'Verdana', sans-serif";
     }
-    return fs; // sin límites adicionales — maxWidth ya lo controla
+    return fs;
   }
 
   function createWord(entry, instant) {
@@ -182,7 +182,7 @@ window.__PALABRAS_INIT__ = function () {
       var fs2 = getFontSizeForText(line2, maxW, tc);
       var baseFontSize = Math.min(fs1, fs2);
       if (window.innerWidth < 1000) {
-        baseFontSize = Math.min(baseFontSize, 88); // Máximo 38px
+        baseFontSize = Math.min(baseFontSize, 88);
       }
 
       tc.font = "bold " + baseFontSize + "px 'Verdana', sans-serif";
@@ -217,8 +217,8 @@ window.__PALABRAS_INIT__ = function () {
 
     var imageData = tc.getImageData(0, 0, canvas.width, canvas.height);
     var step = window.innerWidth < 1000 ? 4 : 6;
-for (var y = 0; y < canvas.height; y += step)
-  for (var x = 0; x < canvas.width; x += step)
+    for (var y = 0; y < canvas.height; y += step)
+      for (var x = 0; x < canvas.width; x += step)
         if (imageData.data[(y * canvas.width + x) * 4 + 3] > 128)
           points.push({ x: x, y: y });
 
@@ -246,10 +246,7 @@ for (var y = 0; y < canvas.height; y += step)
   }
 
   /* ═══════════════════════════════════════════════════
-     CORAZÓN MEJORADO — doble corazón concéntrico
-     Exterior: blanco con glow rosa
-     Interior: cyan suave con glow azul
-     Relleno:  puntos rosados tenues dentro
+     CORAZÓN — escala responsive
      ═══════════════════════════════════════════════════ */
   function heartXY(t, cx, cy, scale) {
     var x = 16 * Math.pow(Math.sin(t), 3);
@@ -262,28 +259,33 @@ for (var y = 0; y < canvas.height; y += step)
     var cx = canvas.width / 2;
     var cy = canvas.height / 2;
 
+    // Escala dinámica del corazón respecto al tamaño del lienzo (la dimensión más pequeña)
+    var minDim = Math.min(canvas.width, canvas.height);
+    var baseScale = minDim / 45; // ajusta este número si lo quieres más grande o más pequeño
+
     var allPoints = [];
 
-    /* — Corazón exterior: blanco, glow rosa suave, partículas 2.3px — */
+    /* — Corazón exterior: blanco, glow rosa — */
     for (var t = 0; t < Math.PI * 2; t += 0.018) {
-      var p = heartXY(t, cx, cy, 13);
+      var p = heartXY(t, cx, cy, baseScale);
       allPoints.push({ x: p.x, y: p.y, color: "rgba(255,255,255,1)", glow: "rgba(255,150,190,0.95)", size: 2.3 });
     }
 
-    /* — Corazón interior: azul-cyan, glow cyan, partículas 1.7px — */
+    /* — Corazón interior: cyan, glow azul — */
     for (var t2 = 0; t2 < Math.PI * 2; t2 += 0.025) {
-      var p2 = heartXY(t2, cx, cy, 7);
+      var p2 = heartXY(t2, cx, cy, baseScale * 0.54);
       allPoints.push({ x: p2.x, y: p2.y, color: "rgba(140,220,255,0.95)", glow: "rgba(60,190,255,1)", size: 1.7 });
     }
 
-    /* — Relleno interior: puntos dispersos rosados tenues — */
+    /* — Relleno interior: puntos rosados tenues — */
+    var fillScale = baseScale * 0.46;
     for (var ft = 0; ft < Math.PI * 2; ft += 0.055) {
       for (var fr = 0.2; fr < 0.92; fr += 0.28) {
         var px = 16 * Math.pow(Math.sin(ft), 3);
         var py = 13 * Math.cos(ft) - 5 * Math.cos(2 * ft) - 2 * Math.cos(3 * ft) - Math.cos(4 * ft);
         allPoints.push({
-          x: cx + px * 6 * fr,
-          y: cy - py * 6 * fr,
+          x: cx + px * fillScale * fr,
+          y: cy - py * fillScale * fr,
           color: "rgba(255,190,215,0.45)",
           glow: "rgba(255,80,150,0.4)",
           size: 1.1
@@ -291,9 +293,9 @@ for (var y = 0; y < canvas.height; y += step)
       }
     }
 
-    /* — Puntos extras entre corazón exterior e interior (anillo medio) — */
+    /* — Anillo medio: cyan tenue — */
     for (var t3 = 0; t3 < Math.PI * 2; t3 += 0.035) {
-      var p3 = heartXY(t3, cx, cy, 10);
+      var p3 = heartXY(t3, cx, cy, baseScale * 0.77);
       allPoints.push({ x: p3.x, y: p3.y, color: "rgba(210,240,255,0.6)", glow: "rgba(150,220,255,0.6)", size: 1.4 });
     }
 
@@ -468,4 +470,4 @@ for (var y = 0; y < canvas.height; y += step)
       createWord(words[Math.min(currentWordIndex, words.length - 1)], true);
   });
 
-}; 
+};
