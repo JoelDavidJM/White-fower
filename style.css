@@ -7,7 +7,7 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
 #escena-flores.paused * { animation-play-state: paused !important; }
 .scene { position: fixed; right: 29vw; bottom: 0; display: flex; justify-content: center; align-items: flex-end; z-index: 5; }
 .flowers { position: relative; transform: scale(1.2); }
-.flower { position: relative; bottom: 1vmin; transform-origin: bottom center; }
+.flower { position: relative; bottom: 0vmin; transform-origin: bottom center; }
 .flower__leafs { position: absolute; animation: blooming-flower 0.8s backwards, sway-flower 1s ease-in-out 1s infinite; animation-delay: 1.3s, 2.5s; z-index: 10; width: 18vmin; height: 18vmin; will-change: transform, opacity; }
 .flower__leafs::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 10vmin; height: 10vmin; background-color: #feffff; filter: blur(12vmin); will-change: filter; }
 .flower__leafs--1 { bottom: 38vmin; left: -31vmin; }
@@ -65,7 +65,7 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
 .leaf-svg--3b { left: 17vmin; bottom: 17vmin; transform: rotate(-104deg) scale(1.4); }
 .leaf-svg--4b { left: 17vmin; bottom: 4vmin; transform: rotate(-150deg) scale(1.5) scaleX(-1); }
 .leaf-svg--4a { left: 24vmin; bottom: 14vmin; transform: rotate(-75deg) scale(1.5); }
-.bouquet-wrapper { position: fixed; bottom: -5em; right: 17vw; z-index: 2; transform: translateX(20%) scale(1.35); pointer-events: none; }
+.bouquet-wrapper { position: fixed; bottom: -5em; right: 17.2vw; z-index: 2; transform: translateX(20%) scale(1.35); pointer-events: none; }
 .bouquet-container { position: relative; display: inline-block; filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.301)); will-change: filter; transform: translateZ(0); }
 .bouquet-container svg { max-width: 100%; height: auto; }
 .stem { stroke: #2d5016; stroke-width: 2; fill: none; stroke-linecap: round; }
@@ -171,8 +171,8 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
   
   /* --- Bouquet Responsive Rotated --- */
   .bouquet-wrapper { 
-    transform: translateX(10%) scale(0.82); 
-    right: 30vw; 
+    transform: translateX(10%) scale(0.73); 
+    right: 24vw; 
     bottom: -14.5em; 
   }
   
