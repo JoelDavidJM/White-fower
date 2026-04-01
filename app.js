@@ -7,6 +7,12 @@ window.__PALABRAS_INIT__ = function () {
   var bgMusic = document.getElementById("bgMusic");
 
   function getCanvasDims() {
+    if (window.innerWidth < 1000) {
+      return {
+        w: window.innerHeight,
+        h: window.innerWidth
+      };
+    }
     return {
       w: window.innerWidth,
       h: window.innerHeight
@@ -490,8 +496,9 @@ for (var y = 0; y < canvas.height; y += step)
   }
 
   window.addEventListener("resize", function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    var dims = getCanvasDims();
+    canvas.width = dims.w;
+    canvas.height = dims.h;
     if (animationStarted)
       createWord(words[Math.min(currentWordIndex, words.length - 1)], true);
   });

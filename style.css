@@ -149,13 +149,7 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
     will-change: transform;
   }
   
-  #palabras-canvas { 
-    width: 180vw; 
-    height: 100vh; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-  }
+
   
   /* --- Intro Responsive Rotated --- */
   .intro-inner { transform: scale(0.9); }
