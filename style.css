@@ -143,9 +143,9 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
     width: 100vh;
     height: 100vw;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -40%) rotate(90deg);
     will-change: transform;
     overflow: hidden;
   }
@@ -156,7 +156,6 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
   
   /* --- Flowers Responsive Rotated --- */
   .scene { 
-    right: 12vw; 
     bottom: 0; 
   }
   
