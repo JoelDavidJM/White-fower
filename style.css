@@ -1,7 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 #perf-wrapper { width: 100%; height: 100%; position: relative; }
 :root { --fl-speed: 0.8s; --speed-leaf: 2s; }
-body { min-height: 100vh; display: flex; justify-content: center; align-items: flex-end; background: black; font-family: 'Georgia', serif; overflow: hidden; perspective: 1000px; }
+body { min-height: 100vh; display: flex; justify-content: center; align-items: flex-end; background: #00010e; font-family: 'Georgia', serif; overflow: hidden; perspective: 1000px; }
 #escena-flores { opacity: 0; pointer-events: none; transition: opacity 1.5s ease; }
 #escena-flores.visible { opacity: 1; pointer-events: auto; }
 #escena-flores.paused * { animation-play-state: paused !important; }
@@ -139,6 +139,10 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
 @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.5); opacity: 1; } }
 @media (max-width: 1000px) {
+  body {
+    min-height: 112vh;
+    overflow: transparent;
+}
   #perf-wrapper {
     width: 100vh;
     height: 100vw;
@@ -159,12 +163,12 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
     bottom: 0; 
   }
   
-  .flowers { transform: scale(1.1); left: -10em; top: 0.2em;}
+  .flowers { transform: scale(1.1); left: -5em; top: 0.2em;}
   
   /* --- Bouquet Responsive Rotated --- */
   .bouquet-wrapper { 
     transform: translateX(10%) scale(0.73); 
-    right: 24vw; 
+    right: 20vw; 
     bottom: -14.5em; 
   }
   
