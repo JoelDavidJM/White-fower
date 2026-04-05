@@ -142,6 +142,7 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
   body {
     min-height: 112vh;
     overflow: transparent;
+    perspective: 20px;
 }
   #perf-wrapper {
     width: 100vh;
