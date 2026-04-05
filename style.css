@@ -65,10 +65,11 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
 .leaf-svg--3b { left: 17vmin; bottom: 17vmin; transform: rotate(-104deg) scale(1.4); }
 .leaf-svg--4b { left: 17vmin; bottom: 4vmin; transform: rotate(-150deg) scale(1.5) scaleX(-1); }
 .leaf-svg--4a { left: 24vmin; bottom: 14vmin; transform: rotate(-75deg) scale(1.5); }
-.bouquet-wrapper { position: fixed; bottom: -5em; right: 17.2vw; z-index: 2; transform: translateX(20%) scale(1.35); pointer-events: none; }
-.bouquet-container { position: relative; display: inline-block; filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.301)); will-change: filter; transform: translateZ(0); }
-.bouquet-container svg { max-width: 100%; height: auto; }
-.stem { stroke: #2d5016; stroke-width: 2; fill: none; stroke-linecap: round; }
+.bouquet-wrapper { position: fixed; bottom: -5em; right: 17.2vw; z-index: 2; transform: translateX(20%) scale(1.35) translateZ(0); pointer-events: none; backface-visibility: hidden; perspective: 1000; }
+.bouquet-container { position: relative; display: inline-block; filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.301)); will-change: filter, transform; transform: translateZ(0); backface-visibility: hidden; }
+.bouquet-container svg { max-width: 100%; height: auto; transform: translateZ(0); }
+.bouquet-container svg use { will-change: opacity; }
+.stem { stroke: #2d5016; stroke-width: 2; fill: none; stroke-linecap: round; will-change: stroke-dashoffset; transform: translateZ(0); }
 @keyframes blooming-flower { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 @keyframes draw-stem { 0% { stroke-dashoffset: 200; } 100% { stroke-dashoffset: 0; } }
 @keyframes sway-flower { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(0); } }
@@ -155,6 +156,16 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
     overflow: hidden;
   }
   
+  /* --- Performance optimizations for mobile --- */
+  .contenedor-flor {
+    animation: none;
+    filter: none;
+    will-change: transform;
+  }
+  .petalo {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* Menos borroso, mejor rendimiento */
+  }
+
   /* --- Intro Responsive Rotated --- */
   .intro-inner { transform: scale(0.9); }
   .intro-title { font-size: 4rem; }
@@ -175,7 +186,9 @@ body { min-height: 100vh; display: flex; justify-content: center; align-items: f
   
   .bouquet-container { 
     right: -10em; 
-    bottom: 2em; 
+    bottom: 2em;
+    filter: none; /* Eliminar el drop-shadow extremadamente pesado en móvil */
+    will-change: auto;
   }
   
   #corazon-mount {
